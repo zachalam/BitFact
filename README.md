@@ -1,5 +1,5 @@
-<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="100" />
+<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="BitFact logo" title="BitFact" align="center" height="200" />
 <br />
 
 # BitFact: Data Fingerprint Tool
-Fingerprint (prove) your data, text, &amp; files on the Ethereum blockchain.
+A Javascript library to fingerprint (prove) your data, text, &amp; files on the Ethereum blockchain.
