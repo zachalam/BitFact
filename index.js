@@ -3,7 +3,7 @@ const BitFact = require("./BitFact");
 // tests for now.
 
 // eth address: 0x9BDf7a7F7FDF391b6EFD32D16c2594ADE09Ff041
-let bitfact = new BitFact("ethereum", {
+let bitfact = new BitFact({
   provider:
     "https://eth-ropsten.alchemyapi.io/v2/01GesjZxWhg-KMfDuLH_-aUOmV-bRBaf",
   privateKey:

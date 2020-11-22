@@ -5,9 +5,9 @@ const sha256f = require("sha256-file");
 const config = require("./config");
 
 class BitFact {
-  constructor(service, options) {
-    this.service = service; // ie: ethereum.
-    this.options = options; // { provider: 'https://...' privateKey: '4109c982fa'}
+  constructor(options, chain = config.DEFAULT_CHAIN) {
+    this.options = options; // ie: { provider: 'https://...' privateKey: '4109c982fa'}
+    this.chain = chain; // ie: { chain: "ropsten" }
     this.web3 = new Web3(options.provider);
   }
 
@@ -52,7 +52,7 @@ class BitFact {
 
   async signTx(txObj) {
     // Signs a TX object.
-    const tx = new Tx.Transaction(txObj, { chain: "ropsten" });
+    const tx = new Tx.Transaction(txObj, this.chain);
     const pk = Buffer.from(this.options.privateKey, "hex");
 
     tx.sign(pk);

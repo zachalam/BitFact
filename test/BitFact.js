@@ -5,7 +5,7 @@ const BitFact = require("../BitFact");
 const secrets = require("../secrets");
 
 // testing bitfact object.
-const bitfact = new BitFact("ethereum", {
+const bitfact = new BitFact({
   provider: secrets.provider,
   privateKey: secrets.privateKey,
 });
