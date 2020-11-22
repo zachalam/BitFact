@@ -17,11 +17,13 @@ let bitfact = new BitFact({
 ### Snippet #1: Fingerprint text or raw data.
 ```
 let receipt = await bitfact.text("hello world", "this is my memo text");
+// returns tx hash
 // => 0x76b88571f0aae7c369107fabfa2e2f22beff25461f42a748724cdca9b6404224
 ```
 
-### Snippet #2: Fingerprint file contnents.
+### Snippet #2: Fingerprint file contents.
 ```
 let receipt = await bitfact.file("./path/to/file", "description of file");
+// returns tx hash
 // => 0x6778ad9aacb300f1ed3ac63cf3cb0961b573cdfe918102b8cfffd8799ba6a6b4
 ```
