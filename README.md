@@ -14,17 +14,17 @@ let bitfact = new BitFact({
 });
 ```
 
-### Snippet #1: Fingerprint text or raw data.
+#### Snippet #1: Fingerprint text or raw data.
 ```
-const textOrData = "hello World";
+const textOrData = "Hello World!";
 const memo = "this is my memo text";
 const receipt = await bitfact.text(textOrData, memo);
 // tx hash => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
 ```
 
-### Snippet #2: Fingerprint file contents.
+#### Snippet #2: Fingerprint file contents.
 ```
-const pathToFile = "./path/to/file.raw";
+const pathToFile = "./path/to/any.file";
 const memo = "description of file";
 const receipt = await bitfact.file(pathToFile, memo);
 // tx hash => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
