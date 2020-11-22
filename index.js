@@ -11,7 +11,7 @@ let bitfact = new BitFact("ethereum", {
 });
 
 let main = async () => {
-  let resp = await bitfact.text("hello", "this is the memo");
+  let resp = await bitfact.file("./readme/logo.png", "this is the memo");
   console.log(resp);
 };
 

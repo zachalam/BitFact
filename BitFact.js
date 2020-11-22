@@ -1,6 +1,7 @@
 const Web3 = require("web3");
 const Tx = require("ethereumjs-tx");
 const sha256 = require("js-sha256");
+const sha256f = require("sha256-file");
 const config = require("./config");
 
 class BitFact {
@@ -18,9 +19,12 @@ class BitFact {
     return await this.stamp(fact);
   }
 
-  async file(file, memo) {
+  async file(filePath, memo) {
     // Exposed method: 
     // BitFact's a file (path).
+    const hash = sha256f(filePath);
+    const fact = this.getFact('file',hash,memo);
+    return await this.stamp(fact);
   }
 
   // --------------------------
@@ -88,7 +92,7 @@ class BitFact {
     memo = memo.replace(/bitfact/g, "");
     memo = memo.replace(/|/g, "");
     memo = memo.replace(/:\s*/g, "");
-    return "BitFact:" + type + "|hash:" + hash + "|memo:" + memo;
+    return "BitFact:" + type + "|sha256:" + hash + "|memo:" + memo;
   }
 }
 

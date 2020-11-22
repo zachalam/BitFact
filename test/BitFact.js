@@ -46,7 +46,7 @@ describe("BitFact", () => {
     it("should match expected string", () => {
       assert.equal(
         memo,
-        "BitFact:text|hash:" +
+        "BitFact:text|sha256:" +
           memoDetails[0] +
           "|memo:" +
           memoDetails[1]
