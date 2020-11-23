@@ -1,11 +1,23 @@
 {
   "name": "bitfact",
   "version": "1.0.1",
-  "description": "Fingerprint data on blockchains.",
+  "description": "A Javascript library to fingerprint (prove) your data, text, & files on the Ethereum blockchain.",
   "main": "BitFact.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zachalam/BitFact.git"
+  },
+  "keywords": [
+    "blockchain",
+    "crypto",
+    "fingerprint",
+    "ethereum",
+    "hashing",
+    "data-integrity"
+  ],
   "author": "Zach Alam",
   "license": "Apache-2.0",
   "dependencies": {
