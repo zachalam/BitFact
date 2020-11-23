@@ -3,6 +3,9 @@
 <br />
 A Javascript library to fingerprint (prove) your data, text, &amp; files on the Ethereum blockchain.
 <br /><br />
+<img src="https://img.shields.io/github/issues/zachalam/BitFact" />
+<img src="https://img.shields.io/github/license/zachalam/BitFact" />
+<br /><br />
 </p>
 
 
