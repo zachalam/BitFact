@@ -2,7 +2,7 @@
   "name": "bitfact",
   "version": "1.0.0",
   "description": "Fingerprint data on blockchains.",
-  "main": "index.js",
+  "main": "BitFact.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
