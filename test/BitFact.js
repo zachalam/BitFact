@@ -1,14 +1,16 @@
+const Web3 = require('web3');
+const sinon = require('sinon');
 const chai = require("chai");
-var assert = chai.assert;
-
+const assert = chai.assert;
 const BitFact = require("../BitFact");
-const secrets = require("../secrets");
 
 // testing bitfact object.
 const bitfact = new BitFact({
-  provider: secrets.provider,
-  privateKey: secrets.privateKey,
+  provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112", // no http requests used in tests
+  privateKey: "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
 });
+
+// -------
 
 describe("BitFact", () => {
   describe("constructor()", () => {
@@ -17,19 +19,23 @@ describe("BitFact", () => {
     });
   });
   describe("getPublicKey()", () => {
-    it("should return matching public key", async () => {
+    it("should return public key", async () => {
+      const testKey = "0x9BDf7a7F7FDF391b6EFD32D16c2594ADE09Ff041";
+      sinon.stub(bitfact.web3.eth.accounts, "privateKeyToAccount").returns({address: testKey});
       const publicKey = await bitfact.getPublicKey();
-      assert.equal(publicKey, secrets.publicKey);
+      assert.equal(publicKey, testKey);
     });
   });
   describe("getTransactionCount()", () => {
     it("should return number", async () => {
+      sinon.stub(bitfact.web3.eth, "getTransactionCount").returns(20);
       const txCount = await bitfact.getTransactionCount();
       assert.isNumber(txCount);
-    }).timeout(5000);
+    });
   });
   describe("getGasPrice()", () => {
     it("should return number", async () => {
+      sinon.stub(bitfact.web3.eth, "getGasPrice").returns('100000000');
       const gasPrice = await bitfact.getGasPrice();
       assert.isString(gasPrice);    // gas price is a string.
     }).timeout(5000);
