@@ -5,6 +5,8 @@ A Javascript library to fingerprint (prove) your data, text, &amp; files on the 
 <br /><br />
 <img src="https://img.shields.io/github/issues/zachalam/BitFact" />
 <img src="https://img.shields.io/github/license/zachalam/BitFact" />
+<img src="https://img.shields.io/npm/v/bitfact" />
+<img src="https://img.shields.io/bundlephobia/minzip/bitfact" />
 <br /><br />
 </p>
 
