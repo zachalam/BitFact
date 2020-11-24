@@ -11,13 +11,16 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 </p>
 
 
-### Install BitFact.
-We're available in both `npm` and `yarn` flavors.
+## Install BitFact.
+We're available in both `🗄️ npm` and `🧶 yarn` flavors.
 ```javascript
 npm i --save bitfact
 ```
+```javascript
+yarn add bitfact
+```
 
-### Setup BitFact.
+## Setup BitFact.
 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const bitfact = new BitFact({ 
