@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="BitFact logo" title="BitFact" align="center" height="140" />
 <br />
-A Javascript library to fingerprint (prove) your data, text, &amp; files on the Ethereum blockchain.
+A delightful JS lib to fingerprint (prove) your data, text, & files on the Ethereum blockchain.
 <br /><br />
 <img src="https://img.shields.io/github/issues/zachalam/BitFact" />
 <img src="https://img.shields.io/github/license/zachalam/BitFact" />
