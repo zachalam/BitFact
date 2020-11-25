@@ -35,20 +35,20 @@ const bitfact = new BitFact({
 });
 ```
 
-#### Snippet #1: Fingerprint text or raw data.
+#### ❇️ Snippet #1: Fingerprint text or raw data.
 ```javascript
 const textOrData = "Hello World!";
 const memo = "this is my memo text";
 const receipt = await bitfact.text(textOrData, memo);
 // receipt.tx => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
-// receipt.hash => 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069
+// receipt.hash => 7f83b1657ff1fd4b1fa3d677284addd200126d9069
 ```
 
-#### Snippet #2: Fingerprint file contents.
+#### ❇️ Snippet #2: Fingerprint file contents.
 ```javascript
 const pathToFile = "./path/to/any.file";
 const memo = "description of file";
 const receipt = await bitfact.file(pathToFile, memo);
 // receipt.tx => 0xaccb1eefa63fe9365fe277ceaefabf06eb05ce5b83a7f28
-// receipt.hash => 07123e1f482356c415f684407a3b8723e10b2cbbc0b8fcd6282c49d37c9c1abc
+// receipt.hash => 07123e1f482356ccbbc0b8fcd6282c49d37c9c1abc
 ```
