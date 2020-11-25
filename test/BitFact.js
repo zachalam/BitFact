@@ -4,7 +4,7 @@ const chai = require("chai");
 const assert = chai.assert;
 const BitFact = require("../BitFact");
 
-// testing bitfact object.
+// testing bitfact object (with faked data).
 const bitfact = new BitFact({
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112", // no http requests used in tests
   privateKey: "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
@@ -16,6 +16,16 @@ describe("BitFact", () => {
   describe("constructor()", () => {
     it("should return an object", () => {
       assert.typeOf(bitfact, "object");
+    });
+  });
+  describe("formReply()", () => {
+    it("object should return all 4 keys", async () => {
+      const reply = await bitfact.formReply("hash", "fact", "call");
+      assert.equal(Object.keys(reply).length, 4);
+      assert.include(Object.keys(reply), 'hash');
+      assert.include(Object.keys(reply), 'fact');
+      assert.include(Object.keys(reply), 'stamp');
+      assert.include(Object.keys(reply), 'info');
     });
   });
   describe("getPublicKey()", () => {
@@ -63,7 +73,7 @@ describe("BitFact", () => {
     it("should return object", async () => {
       const txObject = await bitfact.buildTx();
       assert.isObject(txObject);    // is object
-    }).timeout(5000);
+    });
   });
   describe("signTx()", () => {
     it("should return object", async () => {
@@ -71,6 +81,19 @@ describe("BitFact", () => {
         blank: true
       });
       assert.equal(typeof signedTx, 'object');    // returns a buffer, if "object" via js but not chai.
-    }).timeout(5000);
+    });
+  });
+  describe("broadcastTx()", () => {
+    it("should return object", async () => {
+      const signedTx = await bitfact.signTx({
+        blank: true
+      });
+      sinon.stub(bitfact.web3.eth, "sendSignedTransaction").returns({
+        transactionHash: '0x60868331cbe9ba5e2f39edccac324646ca4536d'
+      });
+      const broadcastedTx = await bitfact.broadcastTx(signedTx);
+
+      assert.isObject(broadcastedTx);
+    });
   });
 });

@@ -12,22 +12,34 @@ class BitFact {
   }
 
   async text(text, memo) {
-    // Exposed method: 
+    // Exposed method:
     // BitFact's a piece of text.
     const hash = sha256(text);
-    const fact = this.getFact('text',hash,memo);
-    return await this.stamp(fact);
+    const fact = this.getFact("text", hash, memo);
+    const stamp = await this.stamp(fact); // stamp to chain
+    return this.formReply(hash, fact, stamp);
   }
 
   async file(filePath, memo) {
-    // Exposed method: 
+    // Exposed method:
     // BitFact's a file (path).
     const hash = sha256f(filePath);
-    const fact = this.getFact('file',hash,memo);
-    return await this.stamp(fact);
+    const fact = this.getFact("file", hash, memo);
+    const stamp = await this.stamp(fact); // stamp to chain.
+    return this.formReply(hash, fact, stamp);
   }
 
   // --------------------------
+
+  formReply(hash, fact, stamp) {
+    // returns a nicely formatted response for end user.
+    return {
+      info: this.chain,
+      fact,
+      hash,
+      stamp,
+    };
+  }
 
   async stamp(fact) {
     // fact: BitFact:text2|hash:2c29..9824|memo:this is a memo
@@ -45,7 +57,9 @@ class BitFact {
       to: config.BITFACT_ADDR,
       value: this.web3.utils.toHex(this.web3.utils.toWei("0", "ether")),
       gasLimit: this.web3.utils.toHex(40000),
-      gasPrice: this.web3.utils.toHex(this.web3.utils.toWei(await this.getGasPrice(), "wei")),
+      gasPrice: this.web3.utils.toHex(
+        this.web3.utils.toWei(await this.getGasPrice(), "wei")
+      ),
       data: this.web3.utils.toHex(bitFactData),
     };
   }
@@ -74,8 +88,8 @@ class BitFact {
   }
 
   async getGasPrice() {
-      // returns as wei.
-      return await this.web3.eth.getGasPrice();
+    // returns as wei.
+    return await this.web3.eth.getGasPrice();
   }
 
   async getTransactionCount() {
