@@ -40,8 +40,6 @@ const bitfact = new BitFact({
 const textOrData = "Hello World!";
 const memo = "this is my memo text";
 const receipt = await bitfact.text(textOrData, memo);
-// receipt.tx => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
-// receipt.hash => 7f83b1657ff1fd4b1fa3d677284addd200126d9069
 ```
 
 #### ❇️ Snippet #2: Fingerprint file contents.
@@ -49,6 +47,28 @@ const receipt = await bitfact.text(textOrData, memo);
 const pathToFile = "./path/to/any.file";
 const memo = "description of file";
 const receipt = await bitfact.file(pathToFile, memo);
-// receipt.tx => 0xaccb1eefa63fe9365fe277ceaefabf06eb05ce5b83a7f28
-// receipt.hash => 07123e1f482356ccbbc0b8fcd6282c49d37c9c1abc
+```
+
+#### 🧾 Sample Response (Receipt).
+The `receipt` (or response) typically takes ~15 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information.
+```javascript
+{
+  info: { chain: 'ropsten' },
+  fact: 'BitFact:file|sha256:d15ec3fd4c6|memo:this is memo',
+  hash: 'd2fb204b925188a9ac4240571be35e1d5b5ec3fd4c6',
+  stamp: {
+    blockHash: '0x400938bdc4c4eddf90ff70de20e37a25f77d66282',
+    blockNumber: 9137050,
+    contractAddress: null,
+    cumulativeGasUsed: 322932,
+    from: '0x9bdf7a7f7fdf391b6efd32d16c2594ade09ff041',
+    gasUsed: 22696,
+    logs: [],
+    logsBloom: '0x000000000000000000000000000000000',
+    status: true,
+    to: '0xface74f0d85cf2fc5a7cd4f55258493c0535f89b',
+    transactionHash: '0x64f87ea0a936ca0c65dc093c8dd143191ba',
+    transactionIndex: 10
+  }
+}
 ```
