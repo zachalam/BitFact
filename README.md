@@ -20,8 +20,14 @@ npm i --save bitfact
 yarn add bitfact
 ```
 
-## Setup BitFact.
-The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
+## Powerful Features
+- 🖐️ Fingerprint any data with 2 easy calls.
+- ♾️ Permanently stored on the Ethereum blockchain.
+- 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
+
+
+## Setup & Use BitFact.
+🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const bitfact = new BitFact({ 
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112",
@@ -34,7 +40,8 @@ const bitfact = new BitFact({
 const textOrData = "Hello World!";
 const memo = "this is my memo text";
 const receipt = await bitfact.text(textOrData, memo);
-// tx hash => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
+// receipt.tx => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
+// receipt.hash => 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069
 ```
 
 #### Snippet #2: Fingerprint file contents.
@@ -42,5 +49,6 @@ const receipt = await bitfact.text(textOrData, memo);
 const pathToFile = "./path/to/any.file";
 const memo = "description of file";
 const receipt = await bitfact.file(pathToFile, memo);
-// tx hash => 0x76b88571f0aae7c369122beff25461f724cdca9b6404224
+// receipt.tx => 0xaccb1eefa63fe9365fe277ceaefabf06eb05ce5b83a7f28
+// receipt.hash => 07123e1f482356c415f684407a3b8723e10b2cbbc0b8fcd6282c49d37c9c1abc
 ```
