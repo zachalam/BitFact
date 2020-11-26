@@ -21,8 +21,9 @@ yarn add bitfact
 ```
 
 ## Powerful Features
-- 🖐️ Fingerprint any data with 2 easy calls.
-- ♾️ Permanently stored on the Ethereum blockchain.
+- 🖐️ Fingerprint all types of data with 2 easy calls.
+- ♾️ Permanent data hash on the Ethereum blockchain.
+- ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 
