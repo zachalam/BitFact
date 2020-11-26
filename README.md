@@ -33,8 +33,9 @@ yarn add bitfact
 const bitfact = new BitFact({ 
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112",
   privateKey: "321d3fa232e55dedee2bd914273f78897f69053b61437c5"
-});
+}, {chain: 'mainnet'});
 ```
+*Optional* 2nd Parameter: **chain** can be of value `mainnet` or `ropsten`. If ignored, `mainnet` will be used.
 
 #### ❇️ Snippet #1: Fingerprint text or raw data.
 ```javascript
