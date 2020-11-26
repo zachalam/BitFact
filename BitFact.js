@@ -29,13 +29,26 @@ class BitFact {
     return this.formReply(hash, fact, stamp);
   }
 
+  parse(fact) {
+    // parse's a bitfact string.
+    // fact: BitFact:text2|hash:2c29..9824|memo:this is a memo
+    let parsedFact = new Object();
+    fact = fact.split("|");
+    fact.forEach((aFact) => {
+        // split the fact section. ie: BitFact:text2
+        const factSect = aFact.split(":");
+        parsedFact[factSect[0]] = factSect[1];
+    });
+    return parsedFact;
+  }
+
   // --------------------------
 
   formReply(hash, fact, stamp) {
     // returns a nicely formatted response for end user.
     return {
       info: this.chain,
-      fact,
+      fact: this.parse(fact),
       hash,
       stamp,
     };

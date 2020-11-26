@@ -19,15 +19,28 @@ describe("BitFact", () => {
     });
   });
   describe("formReply()", () => {
-    it("object should return all 4 keys", async () => {
-      const reply = await bitfact.formReply("hash", "fact", "call");
+    it("object should return 4 keys", async () => {
+      const reply = bitfact.formReply("hash", "fact", "call");
       assert.equal(Object.keys(reply).length, 4);
       assert.include(Object.keys(reply), 'hash');
       assert.include(Object.keys(reply), 'fact');
       assert.include(Object.keys(reply), 'stamp');
       assert.include(Object.keys(reply), 'info');
     });
+    it("keys should have correct names", async () => {
+      const reply = bitfact.formReply("hash", "fact", "call");
+      assert.include(Object.keys(reply), 'hash');
+      assert.include(Object.keys(reply), 'fact');
+      assert.include(Object.keys(reply), 'stamp');
+      assert.include(Object.keys(reply), 'info');
+    });
+    it(".info and .fact should be objects", async () => {
+      const reply = bitfact.formReply("hash", "fact", "call");
+      assert.isObject(reply.fact);
+      assert.isObject(reply.info)
+    });
   });
+
   describe("getPublicKey()", () => {
     it("should return public key", async () => {
       const testKey = "0x9BDf7a7F7FDF391b6EFD32D16c2594ADE09Ff041";
@@ -56,7 +69,7 @@ describe("BitFact", () => {
       "hash of 'hello world'",
     ];
     const memo = bitfact.getFact('text',memoDetails[0], memoDetails[1]);
-    it("should be a string", () => {
+    it("should be a matching string", () => {
       assert.isString(memo);
     });
     it("should match expected string", () => {
@@ -94,6 +107,18 @@ describe("BitFact", () => {
       const broadcastedTx = await bitfact.broadcastTx(signedTx);
 
       assert.isObject(broadcastedTx);
+    });
+  });
+  describe("parse()", () => {
+    it("should return a object from string", async () => {
+      const parsedFact = bitfact.parse('BitFact:file|sha256:testing123|memo:meow');
+      assert.isObject(parsedFact);
+    });
+    it("should have expected matching values", async () => {
+      const fact = bitfact.parse('BitFact:text|sha256:foobar|memo:none for now');
+      assert.equal(fact.BitFact,'text');
+      assert.equal(fact.sha256,'foobar');
+      assert.equal(fact.memo,'none for now');
     });
   });
 });
