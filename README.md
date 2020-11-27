@@ -22,7 +22,7 @@ yarn add bitfact
 
 ## Powerful Features
 - 🖐️ Fingerprint all types of data with 2 easy calls.
-- ♾️ Permanent data hash on the Ethereum blockchain.
+- ♾️ Permanent hash on the Ethereum blockchain.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
@@ -56,7 +56,11 @@ The `receipt` (or response) typically takes ~15 seconds (Ethereum block time) to
 ```javascript
 {
   info: { chain: 'ropsten' },
-  fact: 'BitFact:file|sha256:d15ec3fd4c6|memo:this is memo',
+  fact: {
+    BitFact: 'file',
+    sha256: 'd2fb204b925188c4240571be35e1d5b5ec3fd4c6',
+    memo: 'this is the memo'
+  },
   hash: 'd2fb204b925188a9ac4240571be35e1d5b5ec3fd4c6',
   stamp: {
     blockHash: '0x400938bdc4c4eddf90ff70de20e37a25f77d66282',
