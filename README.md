@@ -52,29 +52,15 @@ const receipt = await bitfact.file(pathToFile, memo);
 ```
 
 #### 🧾 Sample Response (Receipt).
-The `receipt` (or response) typically takes ~15 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information.
+The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information.
 ```javascript
 {
-  info: { chain: 'ropsten' },
-  fact: {
-    BitFact: 'file',
-    sha256: 'd2fb204b925188c4240571be35e1d5b5ec3fd4c6',
-    memo: 'this is the memo'
-  },
-  hash: 'd2fb204b925188a9ac4240571be35e1d5b5ec3fd4c6',
-  stamp: {
-    blockHash: '0x400938bdc4c4eddf90ff70de20e37a25f77d66282',
-    blockNumber: 9137050,
-    contractAddress: null,
-    cumulativeGasUsed: 322932,
-    from: '0x9bdf7a7f7fdf391b6efd32d16c2594ade09ff041',
-    gasUsed: 22696,
-    logs: [],
-    logsBloom: '0x000000000000000000000000000000000',
-    status: true,
-    to: '0xface74f0d85cf2fc5a7cd4f55258493c0535f89b',
-    transactionHash: '0x64f87ea0a936ca0c65dc093c8dd143191ba',
-    transactionIndex: 10
+  txid: '0x89ce46371c55e86142611b4e2bd8ef59f642ab24abec041456',
+  hash: '7f83b1657ff1fc535dfc2d4b1fa3d677284addd200126d9069',
+  meta: {
+    info: { chain: 'ropsten' },
+    fact: { ... },
+    tx: { ... }
   }
 }
 ```
