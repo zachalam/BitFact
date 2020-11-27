@@ -15,47 +15,36 @@ class BitFact {
     // Exposed method:
     // BitFact's a piece of text.
     const hash = sha256(text);
-    const fact = this.getFact("text", hash, memo);
+    const fact = this.buildFact("text", hash, memo);
     const stamp = await this.stamp(fact); // stamp to chain
-    return this.formReply(hash, fact, stamp);
+    return this.formReply(fact, stamp);
   }
 
   async file(filePath, memo) {
     // Exposed method:
     // BitFact's a file (path).
     const hash = sha256f(filePath);
-    const fact = this.getFact("file", hash, memo);
+    const fact = this.buildFact("file", hash, memo);
     const stamp = await this.stamp(fact); // stamp to chain.
-    return this.formReply(hash, fact, stamp);
-  }
-
-  parse(fact) {
-    // parse's a bitfact string.
-    // fact: BitFact:text2|hash:2c29..9824|memo:this is a memo
-    let parsedFact = new Object();
-    fact = fact.split("|");
-    fact.forEach((aFact) => {
-        // split the fact section. ie: BitFact:text2
-        const factSect = aFact.split(":");
-        parsedFact[factSect[0]] = factSect[1];
-    });
-    return parsedFact;
+    return this.formReply(fact, stamp);
   }
 
   // --------------------------
 
-  formReply(hash, fact, stamp) {
-    // returns a nicely formatted response for end user.
+  formReply(factString, tx) {
+    // returns a nicely formatted response for lib user.
+    const fact = this.parseFact(factString)
     return {
-      info: this.chain,
-      fact: this.parse(fact),
-      hash,
-      stamp,
+      txid: tx.transactionHash,
+      hash: fact.hash,
+      meta: {
+          info: this.chain, fact, tx
+      }
     };
   }
 
   async stamp(fact) {
-    // fact: BitFact:text2|hash:2c29..9824|memo:this is a memo
+    // fact: BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"mymemo"})
     let tx = await this.buildTx(fact);
     tx = await this.signTx(tx);
     tx = await this.broadcastTx(tx);
@@ -112,14 +101,29 @@ class BitFact {
     return txCount;
   }
 
-  getFact(type, hash, memo) {
-    // this method formats the bitfact hash.
-    // memos cannot have any of the following: "bitfact", "|", or ":".
-    memo = memo.toLowerCase();
-    memo = memo.replace(/bitfact/g, "");
-    memo = memo.replace(/|/g, "");
-    memo = memo.replace(/:\s*/g, "");
-    return "BitFact:" + type + "|sha256:" + hash + "|memo:" + memo;
+  // --------------------------
+
+  parseFact(fact) {
+    // BitFact(algo:sha256|hash:dabfac484|type:file|memo:testing..)
+    // this method turns a "bitfact string" into an object.
+    // algo:sha256|hash:dabfac484|type:file|memo:testing.."
+    const factString = fact.substring(8, fact.length - 1);
+
+    // {algo: "sha256", hash: "b94e2efcde9", type: "text", memo: "mymemo"}
+    return JSON.parse(factString);
+  }
+
+  buildFact(type, hash, memo) {
+    // this method turns "object data" into a "bitfact string".
+    const input = {
+      algo: "sha256",
+      hash,
+      type,
+      memo,
+    };
+
+    // BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"mymemo"})
+    return "BitFact(" + JSON.stringify(input) + ")";
   }
 }
 

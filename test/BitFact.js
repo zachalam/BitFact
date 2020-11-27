@@ -1,5 +1,5 @@
-const Web3 = require('web3');
-const sinon = require('sinon');
+const Web3 = require("web3");
+const sinon = require("sinon");
 const chai = require("chai");
 const assert = chai.assert;
 const BitFact = require("../BitFact");
@@ -7,7 +7,8 @@ const BitFact = require("../BitFact");
 // testing bitfact object (with faked data).
 const bitfact = new BitFact({
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112", // no http requests used in tests
-  privateKey: "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
+  privateKey:
+    "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
 });
 
 // -------
@@ -19,32 +20,36 @@ describe("BitFact", () => {
     });
   });
   describe("formReply()", () => {
-    it("object should return 4 keys", async () => {
-      const reply = bitfact.formReply("hash", "fact", "call");
-      assert.equal(Object.keys(reply).length, 4);
-      assert.include(Object.keys(reply), 'hash');
-      assert.include(Object.keys(reply), 'fact');
-      assert.include(Object.keys(reply), 'stamp');
-      assert.include(Object.keys(reply), 'info');
+    const bf = 'BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"this is memo-izing"})';
+    const reply = bitfact.formReply(bf, {
+      to: '0xface74f0d85cf2fc5a7cd4f55258493c0535f89b',
+      transactionHash: '0x8978f838f6e3f10fb87478c5e6d2cdcddc3b451b39e09d1bba0974d9e4086a96',
+      transactionIndex: 4
+    });
+
+    it("object should return 3 keys", async () => {
+      assert.equal(Object.keys(reply).length, 3);
     });
     it("keys should have correct names", async () => {
-      const reply = bitfact.formReply("hash", "fact", "call");
-      assert.include(Object.keys(reply), 'hash');
-      assert.include(Object.keys(reply), 'fact');
-      assert.include(Object.keys(reply), 'stamp');
-      assert.include(Object.keys(reply), 'info');
+      assert.include(Object.keys(reply), "txid");
+      assert.include(Object.keys(reply), "hash");
+      assert.include(Object.keys(reply), "meta");
     });
-    it(".info and .fact should be objects", async () => {
-      const reply = bitfact.formReply("hash", "fact", "call");
-      assert.isObject(reply.fact);
-      assert.isObject(reply.info)
+    it(".txid and .hash should be strings", async () => {
+      assert.isString(reply.txid);
+      assert.isString(reply.hash);
+    });
+    it(".meta should be an object", async () => {
+      assert.isObject(reply.meta);
     });
   });
 
   describe("getPublicKey()", () => {
     it("should return public key", async () => {
       const testKey = "0x9BDf7a7F7FDF391b6EFD32D16c2594ADE09Ff041";
-      sinon.stub(bitfact.web3.eth.accounts, "privateKeyToAccount").returns({address: testKey});
+      sinon
+        .stub(bitfact.web3.eth.accounts, "privateKeyToAccount")
+        .returns({ address: testKey });
       const publicKey = await bitfact.getPublicKey();
       assert.equal(publicKey, testKey);
     });
@@ -58,67 +63,68 @@ describe("BitFact", () => {
   });
   describe("getGasPrice()", () => {
     it("should return number", async () => {
-      sinon.stub(bitfact.web3.eth, "getGasPrice").returns('100000000');
+      sinon.stub(bitfact.web3.eth, "getGasPrice").returns("100000000");
       const gasPrice = await bitfact.getGasPrice();
-      assert.isString(gasPrice);    // gas price is a string.
+      assert.isString(gasPrice); // gas price is a string.
     }).timeout(5000);
-  });
-  describe("getFact()", () => {
-    const memoDetails = [
-      "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
-      "hash of 'hello world'",
-    ];
-    const memo = bitfact.getFact('text',memoDetails[0], memoDetails[1]);
-    it("should be a matching string", () => {
-      assert.isString(memo);
-    });
-    it("should match expected string", () => {
-      assert.equal(
-        memo,
-        "BitFact:text|sha256:" +
-          memoDetails[0] +
-          "|memo:" +
-          memoDetails[1]
-      );
-    });
   });
   describe("buildTx()", () => {
     it("should return object", async () => {
       const txObject = await bitfact.buildTx();
-      assert.isObject(txObject);    // is object
+      assert.isObject(txObject); // is object
     });
   });
   describe("signTx()", () => {
     it("should return object", async () => {
       const signedTx = await bitfact.signTx({
-        blank: true
+        blank: true,
       });
-      assert.equal(typeof signedTx, 'object');    // returns a buffer, if "object" via js but not chai.
+      assert.equal(typeof signedTx, "object"); // returns a buffer, if "object" via js but not chai.
     });
   });
   describe("broadcastTx()", () => {
     it("should return object", async () => {
       const signedTx = await bitfact.signTx({
-        blank: true
+        blank: true,
       });
       sinon.stub(bitfact.web3.eth, "sendSignedTransaction").returns({
-        transactionHash: '0x60868331cbe9ba5e2f39edccac324646ca4536d'
+        transactionHash: "0x60868331cbe9ba5e2f39edccac324646ca4536d",
       });
       const broadcastedTx = await bitfact.broadcastTx(signedTx);
 
       assert.isObject(broadcastedTx);
     });
   });
-  describe("parse()", () => {
+
+  // ------------------
+
+  describe("buildFact()", () => {
+    const info = {
+      algo: "sha256",
+      hash: "b94e2efcde9",
+      type: "text",
+      memo: "this is memo-izing",
+    };
+    const input = bitfact.buildFact(info.type, info.hash, info.memo);
+    it("should be a string", () => {
+      assert.isString(input);
+    });
+    it("should match expected string.", () => {
+      assert.equal(input, "BitFact(" + JSON.stringify(info) + ")");
+    });
+  });
+  describe("parseFact()", () => {
+    const parsedFact = bitfact.parseFact(
+      'BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"this is memo-izing"})'
+    );
     it("should return a object from string", async () => {
-      const parsedFact = bitfact.parse('BitFact:file|sha256:testing123|memo:meow');
       assert.isObject(parsedFact);
     });
     it("should have expected matching values", async () => {
-      const fact = bitfact.parse('BitFact:text|sha256:foobar|memo:none for now');
-      assert.equal(fact.BitFact,'text');
-      assert.equal(fact.sha256,'foobar');
-      assert.equal(fact.memo,'none for now');
+      assert.equal(parsedFact.algo, "sha256");
+      assert.equal(parsedFact.hash, "b94e2efcde9");
+      assert.equal(parsedFact.type, "text");
+      assert.equal(parsedFact.memo, "this is memo-izing");
     });
   });
 });
