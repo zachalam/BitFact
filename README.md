@@ -12,13 +12,15 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 
 
 ## Install BitFact.
-We're available in both `🗄️ npm` and `🧶 yarn` flavors.
+Available in `🗄️ npm` and `🧶 yarn` flavours.
 ```javascript
 npm i --save bitfact
 ```
+https://www.npmjs.com/package/bitfact
 ```javascript
 yarn add bitfact
 ```
+https://yarnpkg.com/package/bitfact
 
 ## Powerful Features
 <img src="https://github.com/zachalam/BitFact/blob/master/readme/about.gif?raw=true" alt="BitFact animation" title="BitFact About" align="center" />
