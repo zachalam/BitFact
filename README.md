@@ -8,6 +8,9 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 <img src="https://img.shields.io/npm/v/bitfact" />
 <img src="https://img.shields.io/bundlephobia/minzip/bitfact" />
 <br /><br />
+  
+<img src="https://github.com/zachalam/BitFact/blob/master/readme/about.gif?raw=true" alt="BitFact animation" title="BitFact About" align="center" height="300" />
+<br /><br />  
 </p>
 
 
