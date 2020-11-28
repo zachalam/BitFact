@@ -13,14 +13,14 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 
 ## Install BitFact.
 Available in `🗄️ npm` and `🧶 yarn` flavours.
-```javascript
+```
 npm i --save bitfact
 ```
-https://www.npmjs.com/package/bitfact
-```javascript
+<sup>https://www.npmjs.com/package/bitfact</sup>
+```
 yarn add bitfact
 ```
-https://yarnpkg.com/package/bitfact
+<sup>https://yarnpkg.com/package/bitfact</sup>
 
 ## Powerful Features
 <img src="https://github.com/zachalam/BitFact/blob/master/readme/about.gif?raw=true" alt="BitFact animation" title="BitFact About" align="center" />
@@ -32,7 +32,7 @@ https://yarnpkg.com/package/bitfact
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 
-## Setup & Use BitFact.
+## Use BitFact.
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const bitfact = new BitFact({ 
@@ -70,4 +70,13 @@ The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) 
 }
 ```
 
-## Verifying BitFact.
+## Verify BitFact.
+The `txid` you receive when you fingerprint data can be used as a reference in the future.
+
+#### ❇️ Snippet #3: Fingerprint file contents.
+```javascript
+const txid = "0xa9fab29a809d3d59660ea9a34353f2574c6ac49ee65af";
+const receipt = await bitfact.getByTx(txid);
+```
+#### Manually Verify.
+You can use any independent Ethereum Block Explorer to retrieve your fingerprint. Here's an example of one: https://ropsten.etherscan.io/tx/0xa9fab29a809d3d59653b40c3c0654631f5c060ea9a34353f2574c6ac49ee65af. See `Input Data` section and ensure you view input data as `UTF-8`.
