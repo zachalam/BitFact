@@ -29,13 +29,24 @@ class BitFact {
     return this.formReply(fact, stamp);
   }
 
+  async getByTx(hash) {
+    // Exposed method:
+    // Gets a bitfact by hash.
+    const txObj = await this.web3.eth.getTransaction(hash);
+    const {input} = txObj;     // input contains hex version of bitfact.
+    const factString = this.web3.utils.hexToUtf8(input);
+    return this.formReply(factString, txObj);
+  }
+
   // --------------------------
 
   formReply(factString, tx) {
     // returns a nicely formatted response for lib user.
     const fact = this.parseFact(factString)
+    // txid might be either "transactionhash" or simply "hash"
+    const txid = tx.transactionHash ? tx.transactionHash : tx.hash;
     return {
-      txid: tx.transactionHash,
+      txid,
       hash: fact.hash,
       meta: {
           info: this.chain, fact, tx
