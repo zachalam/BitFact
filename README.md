@@ -10,27 +10,27 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 <br /><br />
 </p>
 
-
 ## Install BitFact.
-Available in `🗄️ npm` and `🧶 yarn` flavours.
+Available in [🗄️ npm](https://www.npmjs.com/package/bitfact) and [🧶 yarn](https://yarnpkg.com/package/bitfact) flavours.
 ```
 npm i --save bitfact
 ```
-<sup>https://www.npmjs.com/package/bitfact</sup>
 ```
 yarn add bitfact
 ```
-<sup>https://yarnpkg.com/package/bitfact</sup>
+
+<br />
 
 ## Powerful Features
 <img src="https://github.com/zachalam/BitFact/blob/master/readme/about.gif?raw=true" alt="BitFact animation" title="BitFact About" align="center" />
 <br /> 
 
-- 🖐️ Fingerprint all types of data with 2 easy calls.
+- 🖐️ Fingerprint any data with 2 easy calls.<br><sup>Not sure what fingerprinting is? <a href="https://en.wikipedia.org/wiki/Fingerprint_(computing)" target="_blank">https://en.wikipedia.org/wiki/Fingerprint_(computing)</a></sup>
 - ♾️ Permanent hash on the Ethereum blockchain.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
+<br />
 
 ## Use BitFact.
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
@@ -56,6 +56,7 @@ const memo = "description of file";
 const receipt = await bitfact.file(pathToFile, memo);
 ```
 
+
 #### 🧾 Sample Response (Receipt).
 The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information. **It's good practice to _save_ the `txid` and `hash`.**
 ```javascript
@@ -69,6 +70,8 @@ The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) 
   }
 }
 ```
+
+<br />
 
 ## Verify BitFact.
 The `txid` you receive when you fingerprint data can be used as a reference in the future.
