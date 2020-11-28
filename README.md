@@ -73,10 +73,10 @@ The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) 
 ## Verify BitFact.
 The `txid` you receive when you fingerprint data can be used as a reference in the future.
 
-#### ❇️ Snippet #3: Fingerprint file contents.
+#### ❇️ Snippet #3: Get Fingerprint By TX id.
 ```javascript
 const txid = "0xa9fab29a809d3d59660ea9a34353f2574c6ac49ee65af";
 const receipt = await bitfact.getByTx(txid);
 ```
-#### Manually Verify.
-You can use any independent Ethereum Block Explorer to retrieve your fingerprint. Here's an example of one: https://ropsten.etherscan.io/tx/0xa9fab29a809d3d59653b40c3c0654631f5c060ea9a34353f2574c6ac49ee65af. See `Input Data` section and ensure you view input data as `UTF-8`.
+#### 🔍 Manually Verify.
+You can use any independent Ethereum Block Explorer to retrieve your fingerprint. Here's an example of a record on the Ropsten testnet: https://ropsten.etherscan.io/tx/0xa9fab29a809d3d59653b40c3c0654631f5c060ea9a34353f2574c6ac49ee65af. See `Input Data` section and ensure you view input data as `UTF-8`.
