@@ -22,7 +22,7 @@ yarn add bitfact
 <br />
 
 ## Powerful Features
-<img src="https://github.com/zachalam/BitFact/blob/master/readme/features.png?raw=true" alt="BitFact animation" title="BitFact About" height="250" align="center" />
+<img src="https://github.com/zachalam/BitFact/blob/master/readme/features.png?raw=true" alt="BitFact animation" title="BitFact About" width="80%" height="80%" align="center" />
 <br /> 
 
 - 🖐️ Fingerprint any data with 2 easy calls.<br><sup>Not sure what fingerprinting is? <a href="https://en.wikipedia.org/wiki/Fingerprint_(computing)" target="_blank">https://en.wikipedia.org/wiki/Fingerprint_(computing)</a></sup>
