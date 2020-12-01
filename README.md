@@ -1,7 +1,9 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="BitFact logo" title="BitFact" align="center" height="140" />
+<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="BitFact logo" title="BitFact" align="center" height="120" />
+<br /><br />
+A delightful JS lib to prove your data, text, & files. 
 <br />
-A delightful JS lib to fingerprint (prove) your data, text, & files on the Ethereum blockchain.
+BitFact fingerprints data and then etches it permanently on the Ethereum Blockchain.
 <br /><br />
 <img src="https://img.shields.io/github/issues/zachalam/BitFact" />
 <img src="https://img.shields.io/github/license/zachalam/BitFact" />
@@ -9,6 +11,9 @@ A delightful JS lib to fingerprint (prove) your data, text, & files on the Ether
 <img src="https://img.shields.io/bundlephobia/minzip/bitfact" />
 <br /><br />
 </p>
+
+---
+<br />
 
 ## Install BitFact.
 Available in **[🗄️ npm](https://www.npmjs.com/package/bitfact)** and **[🧶 yarn](https://yarnpkg.com/package/bitfact)** flavours.
@@ -21,17 +26,17 @@ yarn add bitfact
 
 <br />
 
-## Powerful Features
-<img src="https://github.com/zachalam/BitFact/blob/master/readme/features.png?raw=true" alt="BitFact animation" title="BitFact About" width="85%" height="85%" align="center" />
+## Feature Rich
+<img src="https://github.com/zachalam/BitFact/blob/master/readme/features.png?raw=true" alt="BitFact animation" title="BitFact About" height="200" align="center" />
 
-- 🖐️ Fingerprint any data with 2 easy calls.<br><sup>Not sure what fingerprinting is? <a href="https://en.wikipedia.org/wiki/Fingerprint_(computing)" target="_blank">https://en.wikipedia.org/wiki/Fingerprint_(computing)</a></sup>
-- ♾️ Permanent hash on the Ethereum blockchain.
+- 🖐️ Fingerprint any data with 2 easy calls. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
+- ♾️ Permanent hash etched on the Ethereum blockchain.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 <br />
 
-## Create BitFact.
+## Setup BitFact.
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
@@ -42,6 +47,9 @@ const bitfact = new BitFact({
 ```
 *Optional* 2nd Parameter: **chain** can be of value `mainnet` or `ropsten`. If ignored, `mainnet` will be used.
 
+<br />
+
+## Create BitFact.
 #### ❇️ Snippet #1: Fingerprint text or raw data.
 ```javascript
 const textOrData = "Hello World!";
@@ -58,7 +66,7 @@ const receipt = await bitfact.file(pathToFile, memo);
 
 <br />
 
-## Verify BitFact.
+## Response
 
 #### 🧾 Sample Response (Receipt).
 The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information. **It's good practice to _save_ the `txid` and `hash`.**
@@ -76,7 +84,7 @@ The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) 
 
 <br />
 
-## Get BitFact.
+## Verify BitFact.
 The `txid` you receive when you fingerprint data can be used as a reference in the future.
 
 #### ❇️ Snippet #3: Get Fingerprint By TX id.
