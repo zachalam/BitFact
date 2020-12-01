@@ -49,7 +49,7 @@ const bitfact = new BitFact({
 
 <br />
 
-## Create a Hash
+## Create Hash
 #### Fingerprint text or raw data.
 ```javascript
 const textOrData = "Hello World!";
