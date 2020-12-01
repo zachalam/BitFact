@@ -3,7 +3,7 @@
 <br /><br />
 A delightful JS lib to prove your data, text, & files. 
 <br />
-BitFact fingerprints data and then etches it permanently on the Ethereum Blockchain.
+BitFact fingerprints data and then etches it on the Ethereum Blockchain.
 <br /><br />
 <img src="https://img.shields.io/github/issues/zachalam/BitFact" />
 <img src="https://img.shields.io/github/license/zachalam/BitFact" />
