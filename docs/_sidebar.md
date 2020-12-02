@@ -1,5 +1,5 @@
 <!-- docs/_sidebar.md -->
 
 * [Home](/)
-* [Guide](guide.md)
-* [Providers](providers.md)
+* [Library](/guide/library.md)
+* [Providers](/guide/providers.md)
