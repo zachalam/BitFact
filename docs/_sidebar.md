@@ -2,3 +2,4 @@
 
 * [Home](/)
 * [Guide](guide.md)
+* [Providers](providers.md)
