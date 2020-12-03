@@ -19,7 +19,10 @@ let bitfact = new BitFact(
 let main = async () => {
   try {
     console.log("BitFact a piece of text...");
-    const response = await bitfact.text("Hello World!", "this is the memo");
+    const response = await bitfact.stampText(
+      "Hello World!",
+      "this is the memo"
+    );
     //const response = await bitfact.file("/path/to.file", "this is the memo");
     console.log(response);
   } catch (e) {

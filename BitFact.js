@@ -11,7 +11,7 @@ class BitFact {
     this.web3 = new Web3(options.provider);
   }
 
-  async text(text, memo) {
+  async stampText(text, memo) {
     // Exposed method:
     // BitFact's a piece of text.
     const hash = sha256(text);
@@ -20,7 +20,7 @@ class BitFact {
     return this.formReply(fact, stamp);
   }
 
-  async file(filePath, memo) {
+  async stampFile(filePath, memo) {
     // Exposed method:
     // BitFact's a file (path).
     const hash = sha256f(filePath);
