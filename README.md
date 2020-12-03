@@ -24,19 +24,18 @@ npm i --save bitfact
 yarn add bitfact
 ```
 
-<br />
+## Documentation
+The code is well tested and fully documented. Pull requests to docs are welcome.
+- **Documentation Site: https://docs.bitfact.io/**
+- Project Repo: The documentation can also be viewed in the `docs/guides` folder on the repository.
 
 ## Features
-<img src="https://github.com/zachalam/BitFact/blob/master/readme/features.png?raw=true" alt="BitFact animation" title="BitFact About" height="200" align="center" />
-
 - 🖐️ Fingerprint any data with 2 easy calls. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
 - ♾️ Permanent hash etched on the Ethereum blockchain.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
-<br />
-
-## Setup
+## Quickstart
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
@@ -44,53 +43,9 @@ const bitfact = new BitFact({
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112",
   privateKey: "321d3fa232e55dedee2bd914273f78897f69053b61437c5"
 }, {chain: 'mainnet'});
+
+const receipt = await bitfact.text("Hello World!", "this is my memo");
+console.log(receipt);
+
 ```
 *Optional* 2nd Parameter: **chain** can be of value `mainnet` or `ropsten`. If ignored, `mainnet` will be used.
-
-<br />
-
-## Create Hash
-#### Fingerprint text or raw data.
-```javascript
-const textOrData = "Hello World!";
-const memo = "this is my memo text";
-const receipt = await bitfact.text(textOrData, memo);
-```
-
-#### Fingerprint file contents.
-```javascript
-const pathToFile = "./path/to/any.file";
-const memo = "description of file";
-const receipt = await bitfact.file(pathToFile, memo);
-```
-
-<br />
-
-## Response
-
-#### Sample Response (Receipt).
-The `receipt` (or response) typically takes 15-30 seconds (Ethereum block time) to produce, stamp, and verify. It may take longer depending on how congested the blockchain is. Once you receive a response it'll contain the following information. **It's good practice to _save_ the `txid` and `hash`.**
-```javascript
-{
-  txid: '0x89ce46371c55e86142611b4e2bd8ef59f642ab24abec041456',
-  hash: '7f83b1657ff1fc535dfc2d4b1fa3d677284addd200126d9069',
-  meta: {
-    info: { chain: 'ropsten' },
-    fact: { ... },
-    tx: { ... }
-  }
-}
-```
-
-<br />
-
-## Verify BitFact.
-The `txid` you receive when you fingerprint data can be used as a reference in the future.
-
-#### Get Fingerprint By TX id.
-```javascript
-const txid = "0xa9fab29a809d3d59660ea9a34353f2574c6ac49ee65af";
-const receipt = await bitfact.getByTx(txid);
-```
-#### Manually Retrieve.
-You can use any independent Ethereum Block Explorer to retrieve your fingerprint. Here's an example of a record on the Ropsten testnet: https://ropsten.etherscan.io/tx/0xa9fab29a809d3d59653b40c3c0654631f5c060ea9a34353f2574c6ac49ee65af. See `Input Data` section and ensure you view input data as `UTF-8`.
