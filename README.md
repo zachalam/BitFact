@@ -13,7 +13,6 @@ BitFact fingerprints data and then etches it on the Ethereum Blockchain.
 </p>
 
 ---
-<br />
 
 ## Install
 Available in **[🗄️ npm](https://www.npmjs.com/package/bitfact)** and **[🧶 yarn](https://yarnpkg.com/package/bitfact)** flavours.
