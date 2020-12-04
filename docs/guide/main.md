@@ -1,7 +1,10 @@
 ## What is BitFact?
-At it's core, BitFact is a tool that considerably streamlines the process of: 
+At it's core, **BitFact is a data integrity tool**. It considerably streamlines the process of: 
 1. `hashing` arbitrary data -and-
-2. `timestamping` it on the Ethereum blockchain.
+2. `timestamping` on a non-corruptible ledger (Ethereum blockchain).
+
+?> Periodically timestamping data can build trust, help with audits, and provide better organization.
+
 
 BitFact is well documented, runs absent of any centralized service, and is open source. The Apache 2.0 licensed codebase can be found here: https://github.com/zachalam/BitFact 
 

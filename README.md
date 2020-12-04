@@ -43,7 +43,7 @@ const bitfact = new BitFact({
   privateKey: "321d3fa232e55dedee2bd914273f78897f69053b61437c5"
 }, {chain: 'mainnet'});
 
-const receipt = await bitfact.text("Hello World!", "this is my memo");
+const receipt = await bitfact.stampText("Hello World!", "this is my memo");
 console.log(receipt);
 
 ```

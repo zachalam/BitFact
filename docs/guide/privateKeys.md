@@ -9,6 +9,7 @@ A `privateKey` is a credential that allows you to interact with an account on th
 ## Get Private Key
 In this tutorial, we'll show you how to obtain a private key for Ethereum. This tutorial has two steps: creating the key and then funding the key. Both steps are necessary.
 
+!> The tools in this document have not been audited by BitFact. Exercise extreme caution when storing large amounts of value with these addresses.
 ### Creation
 Todo
 

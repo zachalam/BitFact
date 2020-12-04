@@ -23,7 +23,6 @@ let main = async () => {
       "Hello World!",
       "this is the memo"
     );
-    //const response = await bitfact.file("/path/to.file", "this is the memo");
     console.log(response);
   } catch (e) {
     console.log("could not store bitfact.. check provider status.");

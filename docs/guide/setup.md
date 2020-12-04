@@ -1,5 +1,5 @@
 ## Setup BitFact
-🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
+🚗 The only thing you need to drive with BitFact is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
 const bitfact = new BitFact({ 
@@ -8,8 +8,7 @@ const bitfact = new BitFact({
 }, {chain: 'mainnet'});
 ```
 
-1. Learn how to get a <a href="/#/guide/providers">provider</a> here.
-2. Learn how to get a <a href="/#/guide/privateKeys">private key</a> here.
-
-
 *Optional* 2nd Parameter: **chain** can be of value `mainnet` or `ropsten`. If ignored, `mainnet` will be used.
+
+?> **Need help initializing the class?**
+Learn how to get a <a href="/#/guide/providers">provider here</a> or <a href="/#/guide/privateKeys">private key here</a>.
