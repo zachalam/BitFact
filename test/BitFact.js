@@ -20,11 +20,13 @@ describe("BitFact", () => {
     });
   });
   describe("formReply()", () => {
-    const bf = 'BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"this is memo-izing"})';
+    const bf =
+      'BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"this is memo-izing"})';
     const reply = bitfact.formReply(bf, {
-      to: '0xface74f0d85cf2fc5a7cd4f55258493c0535f89b',
-      transactionHash: '0x8978f838f6e3f10fb87478c5e6d2cdcddc3b451b39e09d1bba0974d9e4086a96',
-      transactionIndex: 4
+      to: "0xface74f0d85cf2fc5a7cd4f55258493c0535f89b",
+      transactionHash:
+        "0x8978f838f6e3f10fb87478c5e6d2cdcddc3b451b39e09d1bba0974d9e4086a96",
+      transactionIndex: 4,
     });
 
     it("object should return 3 keys", async () => {
@@ -44,6 +46,20 @@ describe("BitFact", () => {
     });
   });
 
+  describe("createKeypair()", () => {
+    it("object should return address and privatekey values", async () => {
+      const keypair = {
+        address: "0x3bD1aB7bCf1f9111C76e22295bF5b3301Cc89E89",
+        privateKey:
+          "0x37e8d5f5ca2b82cf5559d015ce40037312b5eb62117c61eaf60af7c566b7bda1",
+      };
+      sinon.stub(bitfact.web3.eth.accounts, "create").returns(keypair);
+      const createdKeypair = await bitfact.createKeypair();
+      assert.isObject(createdKeypair);
+      assert.include(Object.keys(createdKeypair), "address");
+      assert.include(Object.keys(createdKeypair), "privateKey");
+    });
+  });
   describe("getPublicKey()", () => {
     it("should return public key", async () => {
       const testKey = "0x9BDf7a7F7FDF391b6EFD32D16c2594ADE09Ff041";

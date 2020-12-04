@@ -94,6 +94,11 @@ class BitFact {
 
   // --------------------------
 
+  async createKeypair() {
+    // returns a random new keypair.
+    return await this.web3.eth.accounts.create(this.web3.utils.randomHex(32));
+  }
+
   async getPublicKey() {
     return await this.web3.eth.accounts.privateKeyToAccount(
       this.options.privateKey.toString()
