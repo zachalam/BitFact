@@ -1,6 +1,6 @@
 {
   "name": "bitfact",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Javascript library to fingerprint (prove) your data, text, & files on the Ethereum blockchain.",
   "main": "BitFact.js",
   "scripts": {

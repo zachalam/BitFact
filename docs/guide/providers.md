@@ -19,6 +19,8 @@ In this quick tutorial, we'll show you how to obtain a provider so that your Bit
 
 <img src="./images/infurakeys.png" alt="Infura Keys" title="Infura Keys" />
 
+?> By default the provider is for mainnet. Use the drop down to choose other networks.
+
 ## Other Services
 Here's a list of Ethereum providers that we have curated.
 - https://infura.io
