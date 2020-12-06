@@ -13,12 +13,7 @@ const bitfact = new BitFact({
 
 // -------
 
-describe("BitFact", () => {
-  describe("constructor()", () => {
-    it("should return an object", () => {
-      assert.typeOf(bitfact, "object");
-    });
-  });
+describe("BitFact (helpers)", () => {
   describe("formReply()", () => {
     const bf =
       'BitFact({"algo":"sha256","hash":"b94e2efcde9","type":"text","memo":"this is memo-izing"})';
@@ -32,7 +27,7 @@ describe("BitFact", () => {
     it("object should return 3 keys", async () => {
       assert.equal(Object.keys(reply).length, 3);
     });
-    it("keys should have correct names", async () => {
+    it("keys should have correct keys", async () => {
       assert.include(Object.keys(reply), "txid");
       assert.include(Object.keys(reply), "hash");
       assert.include(Object.keys(reply), "meta");
@@ -109,6 +104,16 @@ describe("BitFact", () => {
       const broadcastedTx = await bitfact.broadcastTx(signedTx);
 
       assert.isObject(broadcastedTx);
+    });
+  });
+  describe("stamp()", () => {
+    it("should return object", async () => {
+      const fact = bitfact.buildFact("text", "hash", "memo");
+
+      // using sinon to stub, sendSignedTransaction
+      const stamp = await bitfact.stamp(fact);
+
+      assert.isObject(stamp);
     });
   });
 
