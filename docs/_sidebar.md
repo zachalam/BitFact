@@ -7,6 +7,7 @@
   * [Installation](/guide/install.md)
   * [Setup](/guide/setup.md)
   * [Methods](/guide/methods.md)
+  * [Helpers](/guide/helpers.md)
 * Resources
   * [Providers](/guide/providers.md)
   * [Private Keys](/guide/privateKeys.md)

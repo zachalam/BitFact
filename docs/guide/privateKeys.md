@@ -1,4 +1,4 @@
-## What is a Private Key?
+## What's a Private Key?
 A `privateKey` is a credential that allows you to interact with an account on the Ethereum blockchain. *You can think of it as a password, as such it's a good idea to treat it as one.*
 
 ?> Exercise Caution: BitFact is not a centralized service. We cannot help you recover the privateKey you create if it becomes lost or stolen.
