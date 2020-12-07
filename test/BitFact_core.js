@@ -11,8 +11,6 @@ const bitfact = new BitFact({
     "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
 });
 
-// stubs.
-
 // -------
 
 describe("BitFact (core)", () => {

@@ -29,28 +29,43 @@ class BitFact {
     return this.formReply(fact, stamp);
   }
 
-  async getByTx(hash) {
+  async verifyText(text, txid) {
     // Exposed method:
-    // Gets a bitfact by hash.
-    const txObj = await this.web3.eth.getTransaction(hash);
-    const {input} = txObj;     // input contains hex version of bitfact.
-    const factString = this.web3.utils.hexToUtf8(input);
-    return this.formReply(factString, txObj);
+    // Checks the bitfact at txid, for matching text.
+    const receipt = await this.getByTx(txid);
+    return Boolean(receipt.hash === sha256(text));
+  }
+
+  async verifyFile(filePath, txid) {
+    // Exposed method:
+    // Checks the bitfact at txid, for matching text.
+    const receipt = await this.getByTx(txid);
+    return Boolean(receipt.hash === sha256f(filePath));
   }
 
   // --------------------------
 
+  async getByTx(hash) {
+    // Gets a bitfact by hash.
+    const txObj = await this.web3.eth.getTransaction(hash);
+    const { input } = txObj; // input contains hex version of bitfact.
+    const factString = this.web3.utils.hexToUtf8(input);
+    return this.formReply(factString, txObj);
+  }
+
   formReply(factString, tx) {
     // returns a nicely formatted response for lib user.
-    const fact = this.parseFact(factString)
+    const fact = this.parseFact(factString);
     // txid might be either "transactionhash" or simply "hash"
     const txid = tx.transactionHash ? tx.transactionHash : tx.hash;
     return {
       txid,
       hash: fact.hash,
       meta: {
-          info: this.chain, fact, tx
-      }
+        info: this.chain,
+        fact,
+        tx,
+      },
     };
   }
 

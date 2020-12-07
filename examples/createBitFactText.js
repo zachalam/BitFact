@@ -3,7 +3,11 @@ const BitFact = require("../BitFact");
 const keys = require("./keys");
 const theKeys = keys({ provider: "", privateKey: "" });
 
-// creates an Ethereum keypair
+console.log(theKeys);
+
+// creates a BitFact
 (async () => {
-  console.log(await new BitFact(theKeys).createKeypair());
+  const bitfact = new BitFact(theKeys);
+  const receipt = await bitfact.stampText("Hello World!", "hello world memo");
+  console.log(receipt);
 })();
