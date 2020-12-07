@@ -47,4 +47,5 @@ const receipt = await bitfact.stampText("Hello World!", "this is my memo");
 console.log(receipt);
 
 ```
-*Optional* 2nd Parameter: **chain** can be of value `mainnet` or `ropsten`. If ignored, `mainnet` will be used.
+
+BitFact | Crafted in Las Vegas (don't gamble with your data) 🎰
