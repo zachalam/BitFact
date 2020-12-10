@@ -7,7 +7,7 @@ console.log(theKeys);
 
 // creates a BitFact
 (async () => {
-  const bitfact = new BitFact(theKeys);
+  const bitfact = new BitFact(theKeys,{chain:'ropsten'});
   const receipt = await bitfact.stampText("Hello World!", "hello world memo");
   console.log(receipt);
 })();
