@@ -16,7 +16,13 @@ BitFact({
 })
 ```
 
+## Implementation
+A BitFact string can be easily implemented in any general purpose programming language.
+```javascript
+return "BitFact(" + JSON.stringify(input) + ")"
+```
+
 ## Example
-You can view an example of a BitFact TX on the Ethereum (testnet) blockchain at the following link. Be sure to expend transactions details and look for `Input Data`. It's helpful to view it as `UTF-8`.
+You can view an example of a BitFact TX on the Ethereum (testnet) blockchain at the following link. Be sure to expand transactions details and look for `Input Data`. It's helpful to view it as `UTF-8`.
 https://ropsten.etherscan.io/tx/0x00188a9f1b03aafaa0bb38f7188dc5d0afc7ba8190336ea9352c9b1823e0fce9
 
