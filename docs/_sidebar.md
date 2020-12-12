@@ -16,5 +16,4 @@
   * [Stamping Text](/guide/stampText.md)  
   * [Stamping File](/guide/stampFile.md)
 * Technical
-  * [Charting](/guide/chart.md)
   * [Structure](/guide/structure.md)

@@ -7,7 +7,7 @@ UnhandledPromiseRejectionWarning: Error: Returned error: invalid sender
     at Object.ErrorResponse (/BitFact/node_modules/web3-core-helpers/lib/errors.js:28:19)
 ```
 
-This error occurse when the privateKey for a given account does not have any Ethereum in their respective account.
+This error occurse when the privateKey for a given account does not have any Ether to process a transaction (or no Ether at all).
 
-- Verify that the account specified by `privateKey` has enough Ethereum.
-- Verify the { chain: } parameter is being specified in the BitFact constructor.
+- Verify that the account specified by `privateKey` has enough Ether.
+- Verify the `{ chain: }` parameter is being specified in the BitFact constructor.
