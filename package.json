@@ -1,8 +1,11 @@
 {
   "name": "bitfact",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Javascript library to fingerprint (prove) your data, text, & files on the Ethereum blockchain.",
   "main": "BitFact.js",
+  "bin": {
+    "bitfact": "cli/main.js"
+  },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
@@ -21,6 +24,7 @@
   "author": "Zach Alam",
   "license": "Apache-2.0",
   "dependencies": {
+    "chalk": "^4.1.0",
     "ethereumjs-tx": "2.1.2",
     "js-sha256": "0.9.0",
     "sha256-file": "1.0.0",
