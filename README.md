@@ -17,10 +17,22 @@ BitFact fingerprints data and then etches it on the Ethereum Blockchain.
 ## Install
 Available in **[🗄️ npm](https://www.npmjs.com/package/bitfact)** and **[🧶 yarn](https://yarnpkg.com/package/bitfact)** flavours.
 ```
-npm i --save bitfact
+npm install -g bitfact
 ```
 ```
 yarn add bitfact
+```
+
+## Setup
+🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
+```
+$ bitfact setup
+```
+```
+✔ Enter a provider URL. … https://eth.infura.io/v2/01Grse32
+✔ Enter a private key (pre-funded with ETH). … 67ccc16df9e7581ec11e7b413bad46470165629cf
+✔ Which network are you using? › Ethereum (mainnet)
+Config file added to current directory, "bitfact.json"
 ```
 
 ## Documentation
@@ -35,7 +47,7 @@ The code is well tested and fully documented. Pull requests to docs are welcome.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 ## Use Programatically
-🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
+You can also import `bitfact` as a module in your project.
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
 const bitfact = new BitFact({ 
