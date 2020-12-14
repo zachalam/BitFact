@@ -35,6 +35,18 @@ $ bitfact setup
 Config file added to current directory, "bitfact.json"
 ```
 
+
+## Write to Chain
+```
+$ bitfact stamp -f hello_world.txt -m "this is my hello world memo"
+```
+```
+⠓ confirming..
+Success! Stamped on Blockchain:
+Hash: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
+Txid: 0xbae7f1714416e10861497c0837966bf8e933ab8d63026e0871d969ebed391cf5
+```
+
 ## Documentation
 The code is well tested and fully documented. Pull requests to docs are welcome.
 - **Documentation Site: https://docs.bitfact.io/**
@@ -47,7 +59,7 @@ The code is well tested and fully documented. Pull requests to docs are welcome.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 ## Use Programatically
-You can also import `bitfact` as a module in your project.
+📜 You can also import `bitfact` as a module in your own project.
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
 const bitfact = new BitFact({ 
