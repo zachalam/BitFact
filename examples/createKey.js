@@ -1,9 +1,13 @@
 // NOTE: Update to USE from a package manager instead.
 const BitFact = require("../BitFact");
-const keys = require("./keys");
-const theKeys = keys({ provider: "", privateKey: "" });
+const loadConf = require("./loadConf");
+const setup = loadConf({
+  provider: "",
+  privateKey: "",
+  options: { chain: "ropsten" },
+});
 
 // creates an Ethereum keypair
 (async () => {
-  console.log(await new BitFact(theKeys).createKeypair());
+  console.log(await new BitFact(setup).createKeypair());
 })();

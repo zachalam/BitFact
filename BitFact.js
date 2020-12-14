@@ -5,10 +5,17 @@ const sha256f = require("sha256-file");
 const config = require("./config");
 
 class BitFact {
-  constructor(options, chain = config.DEFAULT_CHAIN) {
-    this.options = options; // ie: { provider: 'https://...' privateKey: '4109c982fa'}
-    this.chain = chain; // ie: { chain: "ropsten" }
-    this.web3 = new Web3(options.provider);
+  constructor(setup) {
+    /* setup example
+    {
+      "provider": "https://eth-ropsten.alchemyapi.io/v2/01GesjZxWhg-KMfDuLH_-aUOmV-bRBaf",
+      "privateKey": "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
+      "options": { "chain": "ropsten" }
+    }
+    */
+    this.privateKey = setup.privateKey; // ie: 67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf
+    this.options = setup.options ? setup.options : config.DEFAULT_OPTIONS; // ie: { chain: "ropsten" }
+    this.web3 = new Web3(setup.provider);
   }
 
   async stampText(text, memo) {
@@ -62,7 +69,7 @@ class BitFact {
       txid,
       hash: fact.hash,
       meta: {
-        info: this.chain,
+        info: this.options,
         fact,
         tx,
       },
@@ -94,8 +101,8 @@ class BitFact {
 
   async signTx(txObj) {
     // Signs a TX object.
-    const tx = new Tx.Transaction(txObj, this.chain);
-    const pk = Buffer.from(this.options.privateKey, "hex");
+    const tx = new Tx.Transaction(txObj, this.options);
+    const pk = Buffer.from(this.privateKey, "hex");
 
     tx.sign(pk);
     return tx.serialize();
@@ -116,7 +123,7 @@ class BitFact {
 
   async getPublicKey() {
     return await this.web3.eth.accounts.privateKeyToAccount(
-      this.options.privateKey.toString()
+      this.privateKey.toString()
     ).address;
   }
 

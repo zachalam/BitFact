@@ -34,14 +34,15 @@ The code is well tested and fully documented. Pull requests to docs are welcome.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
-## Quickstart
+## Use Programatically
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```javascript
 const BitFact = require("bitfact"); // load from npm or yarn
 const bitfact = new BitFact({ 
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112",
-  privateKey: "321d3fa232e55dedee2bd914273f78897f69053b61437c5"
-}, {chain: 'mainnet'});
+  privateKey: "321d3fa232e55dedee2bd914273f78897f69053b61437c5",
+  options: {chain: 'mainnet'}
+});
 
 const receipt = await bitfact.stampText("Hello World!", "this is my memo");
 console.log(receipt);
