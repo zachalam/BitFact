@@ -16,16 +16,16 @@ BitFact fingerprints data and then etches it on the Ethereum Blockchain.
 
 ## Install
 Available in **[🗄️ npm](https://www.npmjs.com/package/bitfact)** and **[🧶 yarn](https://yarnpkg.com/package/bitfact)** flavours.
-```
+```java
 npm install -g bitfact
 ```
-```
-yarn add bitfact
+```java
+yarn global add bitfact
 ```
 
 ## Setup
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
-```
+```java
 $ bitfact setup
 ```
 ```
@@ -37,7 +37,8 @@ Config file added to current directory, "bitfact.json"
 
 
 ## Write to Chain
-```
+🪧 Use `bitfact stamp` with the `-f` to stamp a file or `-t` to stamp text.
+```java
 $ bitfact stamp -f hello_world.txt -m "this is my hello world memo"
 ```
 ```
