@@ -6,6 +6,7 @@ const fs = require("fs");
 const BitFact = require("../BitFact");
 const config = require("../config");
 const { exit } = require("process");
+const helpers = require("./helpers");
 const bitfact = new BitFact({});
 
 const questions = [
@@ -35,7 +36,7 @@ const questions = [
 module.exports = {
   prompt: async () => {
     // verify file does not already exist.
-    if (fs.existsSync(config.CONFIG_FILE)) {
+    if (helpers.confFileExists()) {
       console.log(
         chalk.red(
           `Config already exists, "${config.CONFIG_FILE}". Manually remove this file and retry.`
@@ -47,6 +48,6 @@ module.exports = {
     const response = await prompts(questions);
     const data = JSON.stringify(response);
     fs.writeFileSync(config.CONFIG_FILE, data);
-    console.log(chalk.green(`Config file created, "${config.CONFIG_FILE}"`));
+    console.log(chalk.green(`Config file added to current directory, "${config.CONFIG_FILE}"`));
   },
 };
