@@ -38,7 +38,7 @@ module.exports = {
     if (fs.existsSync(config.CONFIG_FILE)) {
       console.log(
         chalk.red(
-          `Config file already exists, "${config.CONFIG_FILE}". You must manually remove this file before proceeding.`
+          `Config already exists, "${config.CONFIG_FILE}". Manually remove this file and retry.`
         )
       );
       exit();
@@ -47,6 +47,6 @@ module.exports = {
     const response = await prompts(questions);
     const data = JSON.stringify(response);
     fs.writeFileSync(config.CONFIG_FILE, data);
-    console.log(chalk.green("Setup file created at: " + config.CONFIG_FILE));
+    console.log(chalk.green(`Config file created, "${config.CONFIG_FILE}"`));
   },
 };
