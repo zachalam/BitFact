@@ -23,6 +23,12 @@ npm install -g bitfact
 yarn global add bitfact
 ```
 
+## Features
+- 🖐️ Fingerprint any data with 2 easy calls. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
+- ♾️ Permanent hash etched on the Ethereum blockchain.
+- ⛽ Tiny gas fees (~21,000) - the same as sending ether.
+- 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
+
 ## Quickstart
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```java
@@ -41,14 +47,8 @@ Txid: 0xbae7f1714416e10861497c0837966bf8e933ab8d63026e0871d969ebed391cf5
 
 ## Documentation
 The code is well tested and fully documented. Pull requests to docs are welcome.
-- **Documentation Site: https://docs.bitfact.io/**
+- 📗 **Documentation Site: https://docs.bitfact.io/**
 - Project Repo: The documentation can also be viewed in the `docs/guides` folder on the repository.
-
-## Features
-- 🖐️ Fingerprint any data with 2 easy calls. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
-- ♾️ Permanent hash etched on the Ethereum blockchain.
-- ⛽ Tiny gas fees (~21,000) - the same as sending ether.
-- 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
 
 ## Use Programatically
 📜 You can also import `bitfact` as a module in your own project.
