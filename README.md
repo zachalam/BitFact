@@ -23,21 +23,12 @@ npm install -g bitfact
 yarn global add bitfact
 ```
 
-## Setup
+## Quickstart
 🚗 The only thing you need to drive is an Ethereum `provider` and `privateKey`. 
 ```java
 $ bitfact setup
 ```
-```
-✔ Enter a provider URL. … https://eth.infura.io/v2/01Grse32
-✔ Enter a private key (pre-funded with ETH). … 67ccc16df9e7581ec11e7b413bad46470165629cf
-✔ Which network are you using? › Ethereum (mainnet)
-Config file added to current directory, "bitfact.json"
-```
-
-
-## Write to Chain
-🪧 Use `bitfact stamp` with the `-f` to stamp a file or `-t` to stamp text.
+🪧 After setup, use `bitfact stamp` with `-f` to stamp a file or `-t` to stamp text.
 ```java
 $ bitfact stamp -f hello_world.txt -m "this is my hello world memo"
 ```

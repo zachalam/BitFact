@@ -1,16 +1,12 @@
 #! /usr/bin/env node
 
 const { program } = require("commander");
-const chalk = require("chalk");
-
 const BitFact = require("../BitFact");
-const Spinner = require("cli-spinner").Spinner;
-const spinner = new Spinner(chalk.blue("confirming with blockchain.."));
-spinner.setSpinnerString(19);
 
 const pjson = require("../package.json");
-const helpers = require("./helpers");
-const setup = require("./setup");
+const setup = require("./commands/setup");
+const stamp = require("./commands/stamp");
+const verify = require("./commands/verify");
 
 program.version(pjson.version, "-v");
 
@@ -23,7 +19,7 @@ program
 
 program
   .command("keypair")
-  .description("generates a keypai")
+  .description("generates a keypair")
   .action(async () => {
     const bitfact = new BitFact({});
     console.log(await bitfact.createKeypair());
@@ -31,30 +27,22 @@ program
 
 program
   .command("stamp")
-  .description("stamp text")
+  .description("stamp text or files")
   .option("-f, --file <type>", "denotes filepath provided")
   .option("-t, --text <type>", "denotes raw text provided")
   .option("-m, --memo <type>", "denotes memo string")
-  .action(async (env, options) => {
-    helpers.killForNoConf();
-    if (env.file && env.text) errorExit("Cannot supply both -f and -t params.");
-    const bitfact = new BitFact(helpers.loadConfFile());
+  .action(async (env) => {
+    stamp.prompt(env);
+  });
 
-    if (env.file) {
-      // bitfact stamp file.
-      spinner.start();
-      const stamped = await bitfact.stampFile(env.file, env.memo);
-      spinner.stop();
-      helpers.stampSuccess(stamped.hash, stamped.txid);
-    }
-
-    if (env.text) {
-      // bitfact stamp text
-      spinner.start();
-      const stamped = await bitfact.stampText(env.text, env.memo);
-      spinner.stop();
-      helpers.stampSuccess(stamped.hash, stamped.txid);
-    }
+program
+  .command("verify")
+  .description("verify text or files")
+  .option("-f, --file <type>", "denotes filepath provided")
+  .option("-t, --text <type>", "denotes raw text provided")
+  .requiredOption("-tx, --tx <type>", "denotes transaction id.")
+  .action(async (env) => {
+    verify.prompt(env);
   });
 
 program.parse(process.argv);

@@ -13,10 +13,8 @@ const confFileExists = () => {
 };
 
 const errorExit = (msg) => {
-  if (!confFileExists()) {
     console.log(chalk.bold(chalk.red("Error! ")) + chalk.red(msg));
     exit();
-  }
 };
 
 const killForNoConf = () => {
@@ -27,19 +25,21 @@ const killForNoConf = () => {
   }
 };
 
-const stampSuccess = (hash, txid) => {
+const stampDone = (hash, txid) => {
   if (!hash || !txid) errorExit("Could not write to Blockchain.");
   console.log("");
-  console.log(chalk.green(chalk.bold("Success! Stamped on Blockchain:")));
+  console.log(chalk.green(chalk.bold("Success! Stamped on Blockchain.")));
   console.log("Hash: " + chalk.gray(chalk.bold(hash)));
   console.log("Txid: " + chalk.gray(chalk.bold(txid)));
 };
 
-const getExplorerUrl = (txid, chain) => {
-  if (chain === "ropsten") return "https://ropsten.etherscan.io/tx/" + txid;
-
-  // default to main
-  return "https://etherscan.io/tx/" + txid;
+const verifyDone = (status) => {
+  if (status === undefined) errorExit("Could not read from Blockchain.");
+  console.log("");
+  console.log(chalk.gray(chalk.bold("Response received from Blockchain.")));
+  console.log(
+    "Stamped: " + chalk.bold(status ? chalk.green("YES") : chalk.red("NO"))
+  );
 };
 
 module.exports = {
@@ -47,6 +47,6 @@ module.exports = {
   errorExit,
   killForNoConf,
   loadConfFile,
-  stampSuccess,
-  getExplorerUrl,
+  stampDone,
+  verifyDone,
 };

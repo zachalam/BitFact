@@ -3,10 +3,10 @@ const prompts = require("prompts");
 const chalk = require("chalk");
 const fs = require("fs");
 
-const BitFact = require("../BitFact");
-const config = require("../config");
+const BitFact = require("../../BitFact");
+const config = require("../../config");
 const { exit } = require("process");
-const helpers = require("./helpers");
+const helpers = require("../helpers");
 const bitfact = new BitFact({});
 
 const questions = [
