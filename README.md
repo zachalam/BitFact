@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/logo.png" alt="BitFact logo" title="BitFact" align="center" height="120" />
+<img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/header.png" alt="BitFact Header Image" title="BitFact" align="center" height="320" />
 <br /><br />
 A delightful JS lib to prove your data, text, & files. 
 <br />
