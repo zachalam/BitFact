@@ -3,7 +3,7 @@ At it's core, **BitFact is a data integrity tool**. It considerably streamlines 
 1. `hashing` arbitrary data -and-
 2. `timestamping` on a non-corruptible ledger (Ethereum blockchain).
 
-?> Periodically timestamping data can build trust, help with audits, and provide better organization.
+?> Routinely use **BitFact** to sign documents, establish copyrights, and build trust.
 
 
 BitFact is well documented, runs absent of any centralized service, and is open source. The Apache 2.0 licensed codebase can be found here: https://github.com/zachalam/BitFact 

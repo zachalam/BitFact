@@ -3,8 +3,8 @@
 * Getting Started
   * [About](/)
   * [Quickstart](/guide/quickstart.md)
+  * [Install](/guide/install.md)
 * Library
-  * [Installation](/guide/install.md)
   * [Setup](/guide/setup.md)
   * [Methods](/guide/methods.md)
   * [Receipts](/guide/receipts.md)
