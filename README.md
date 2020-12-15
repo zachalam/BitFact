@@ -36,12 +36,11 @@ $ bitfact setup
 ```
 🪧 After setup, use `bitfact stamp` with `-f` to stamp a file or `-t` to stamp text.
 ```java
-$ bitfact stamp -f hello_world.txt -m "this is my hello world memo"
+$ bitfact stamp -f hello_world.txt
 ```
 ```
-⠓ confirming..
+⠓ Confirming..
 Success! Stamped on Blockchain:
-Hash: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
 Txid: 0xbae7f1714416e10861497c0837966bf8e933ab8d63026e0871d969ebed391cf5
 ```
 
