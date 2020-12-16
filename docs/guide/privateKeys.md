@@ -13,26 +13,17 @@ In this tutorial, we'll show you how to obtain a private key for Ethereum. This 
 !> The external tools/services in this document have not been audited by BitFact. Exercise extreme caution when storing larger amounts of value.
 
 ### Creation
-Use the quick or long method to generate your `privateKey`. No matter where you generate your keys, they're valid on any chain. Be sure to make note of your `address` as well for the funding step.
-#### Quick (Unsafe)
-Use an Ethereum generator online for fast setup & testing.
-- Visit https://vanity-eth.tk/. Click `Start Now`, then `Generate`. Click to reveal the private key. NOTE: The text revealed below the address is your private key (be sure to save it).
+You can quickly generate keys using the command line tool. Simply run the following command after you've installed bitfact. No matter where you generate Ethereum keys, they're valid on any ETH chain. Be sure to make note of your `address` as well for the funding step.
 
-#### Long (Better)
-Run the `createKey.js` example inside the BitFact library. 
 ```console
-$ mkdir bitfact-hello && cd bitfact-hello && npm init
-$ npm install --save bitfact
-$ node ./node_modules/bitfact/examples/createKey.js
+$ bitfact keypair
 ```
 ```console
-{
-  address: '0x23a5f2Bccc06a6781BF3f3816EF0b9A31ed176B3',
-  privateKey: '0x7aa9d17961c1bfb6279fe5b68007947811d48b2ddce775ce60e566faf44993f2',
-  ...
-}
+⠋ Generating keys..
+Address: 0xfA7460413D3592C96c867642C13De64a223f0994
+Private Key: 0xdcb3535eac64fb0ed569d2442f60ec0b7a42629af810bd883f0e704109646d65
 ```
-The example calls the `createKeypair()` method as part of the BitFact library. Each time it's called a new (random) keypair will be generated. This method is syntactic sugar for [web3.eth.accounts.create](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-accounts.html#create).
+The example calls the `createKeypair()` method as part of the BitFact library. Each time it's called a new (random) keypair will be generated. This is syntactic sugar for [web3.eth.accounts.create](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-accounts.html#create).
 
 
 ### Funding
