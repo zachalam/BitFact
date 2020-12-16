@@ -6,7 +6,7 @@ A `privateKey` is a credential that allows you to interact with an account on th
 ```
 0xea656c47e3c9bcfaf42433a4e8bf71e3ec567c85baa86e31fa2df5a0ef804bb2
 ```
-You can provide a private key with or without the leading `0x`.
+With BitFact you can provide a private key with or without the leading `0x`.
 
 ## Get Private Key
 In this tutorial, we'll show you how to obtain a private key for Ethereum. This tutorial has two steps: creating the key and then funding the key. Both steps are necessary.
@@ -14,7 +14,7 @@ In this tutorial, we'll show you how to obtain a private key for Ethereum. This 
 !> The external tools/services in this document have not been audited by BitFact. Exercise extreme caution when storing larger amounts of value.
 
 ### Creation
-You can quickly generate keys using the command line tool. Simply run the following command after you've installed bitfact. No matter where you generate Ethereum keys, they're valid on any ETH chain. Be sure to make note of your `address` as well for the funding step.
+You can quickly generate keys using the BitFact tool. No matter where you generate Ethereum keys, they're valid on any ETH chain. Be sure to make note of your `address` as well for the funding step.
 
 ```console
 $ bitfact keypair
