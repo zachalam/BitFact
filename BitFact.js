@@ -13,7 +13,7 @@ class BitFact {
       "options": { "chain": "ropsten" }
     }
     */
-    this.privateKey = setup.privateKey; // ie: 67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf
+    this.privateKey = setup.privateKey;
     this.options = setup.options ? setup.options : config.DEFAULT_OPTIONS; // ie: { chain: "ropsten" }
     this.web3 = new Web3(setup.provider);
   }
@@ -102,9 +102,8 @@ class BitFact {
   async signTx(txObj) {
     // Signs a TX object.
     const tx = new Tx.Transaction(txObj, this.options);
-    const pk = Buffer.from(this.privateKey, "hex");
-
-    tx.sign(pk);
+    let pkb = this.getKeyBuffer();
+    tx.sign(pkb);
     return tx.serialize();
   }
 
@@ -115,6 +114,15 @@ class BitFact {
   }
 
   // --------------------------
+
+  getKeyBuffer() {
+    let pk = this.privateKey;
+    if (this.web3.utils.isHexStrict(this.privateKey)) {
+      // leading hex provided. remove 0x.
+      pk = pk.substring(2);
+    }
+    return Buffer.from(pk, "hex");
+  }
 
   async createKeypair() {
     // returns a random new keypair.

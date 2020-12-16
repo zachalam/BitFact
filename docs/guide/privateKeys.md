@@ -4,8 +4,9 @@ A `privateKey` is a credential that allows you to interact with an account on th
 ?> Exercise Caution: BitFact is not a centralized service. We cannot help you recover the privateKey you create if it becomes lost or stolen.
 ### Example
 ```
-71ec0d821fdb3ed43c95f5acb591caa80bf2d96d206604c68c0e2f29357b4d3b
+0xea656c47e3c9bcfaf42433a4e8bf71e3ec567c85baa86e31fa2df5a0ef804bb2
 ```
+You can provide a private key with or without the leading `0x`.
 
 ## Get Private Key
 In this tutorial, we'll show you how to obtain a private key for Ethereum. This tutorial has two steps: creating the key and then funding the key. Both steps are necessary.

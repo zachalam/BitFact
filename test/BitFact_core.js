@@ -4,10 +4,11 @@ const assert = chai.assert;
 const BitFact = require("../BitFact");
 
 // testing bitfact object (with faked data).
+const mockPk =
+  "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf";
 const bitfact = new BitFact({
   provider: "https://mainnet.infura.io/v3/37a0db22401bbe211112", // no http requests used in tests
-  privateKey:
-    "67ccc16df9e7581ec11e7483c7eba5f2ae937b7ab37db413bad46470165629cf",
+  privateKey: mockPk,
 });
 
 // -------
@@ -75,8 +76,18 @@ describe("BitFact (core)", () => {
     });
   });
 
+  describe("getKeyBuffer()", () => {
+    it("should return buffer equal to mock pk", async () => {
+      sinon.stub(bitfact.web3.utils, "isHexStrict").returns(false);
+      const keyBuffer = await bitfact.getKeyBuffer();
+      // Buffer.compare() returns a 0 if the two params are equal buffers.
+      assert.isTrue(
+        Buffer.compare(keyBuffer, Buffer.from(mockPk, "hex")) === 0
+      );
+    });
+  });
   describe("createKeypair()", () => {
-    it("object should return address and privatekey values", async () => {
+    it("returned object contain address and privatekey values", async () => {
       const keypair = {
         address: "0x3bD1aB7bCf1f9111C76e22295bF5b3301Cc89E89",
         privateKey:
