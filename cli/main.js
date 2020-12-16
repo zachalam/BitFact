@@ -4,6 +4,7 @@ const { program } = require("commander");
 const BitFact = require("../BitFact");
 
 const pjson = require("../package.json");
+const keypair = require("./commands/keypair");
 const setup = require("./commands/setup");
 const stamp = require("./commands/stamp");
 const verify = require("./commands/verify");
@@ -21,8 +22,7 @@ program
   .command("keypair")
   .description("generates a keypair")
   .action(async () => {
-    const bitfact = new BitFact({});
-    console.log(await bitfact.createKeypair());
+    keypair.prompt();
   });
 
 program

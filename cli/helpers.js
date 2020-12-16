@@ -42,6 +42,12 @@ const verifyDone = (status) => {
   );
 };
 
+const keypairDone = (keys) => {
+  console.log("");
+  console.log("Address: " + chalk.gray(chalk.bold(keys.address)));
+  console.log("Private Key: " + chalk.gray(chalk.bold(keys.privateKey)));
+}
+
 module.exports = {
   confFileExists,
   errorExit,
@@ -49,4 +55,5 @@ module.exports = {
   loadConfFile,
   stampDone,
   verifyDone,
+  keypairDone
 };
