@@ -19,7 +19,7 @@ const questions = [
     type: "text",
     name: "privateKey",
     message: "Enter a private key (pre-funded with ETH).",
-    initial: "67ccc16df9e7581ec11e7b413bad46470165629cf",
+    initial: "0x67ccc16df9e7581ec11e7b413bad46470165629cf",
   },
   {
     type: "select",
@@ -27,6 +27,7 @@ const questions = [
     message: "Which network are you using?",
     choices: [
       { title: "Ethereum (mainnet)", value: { chain: "mainnet" } },
+      { title: "Testnet (goerli)", value: { chain: "goerli" } },
       { title: "Testnet (ropsten)", value: { chain: "ropsten" } },
     ],
   },
