@@ -34,14 +34,24 @@ yarn global add bitfact
 ```java
 $ bitfact setup
 ```
+### Stamp
 🪧 After setup, use `bitfact stamp` with `-f` to stamp a file or `-t` to stamp text.
 ```java
 $ bitfact stamp -f hello_world.txt
 ```
 ```
 ⠓ Confirming..
-Success! Stamped on Blockchain:
+🛡️ Success! Stamped on Blockchain:
 Txid: 0xbae7f1714416e10861497c0837966bf8e933ab8d63026e0871d969ebed391cf5
+```
+### Verify
+```java
+$ bitfact verify -f hello_world.txt -tx 0xbae7f1714416e10861497c0837966bf8e933ab8d63026e0871d969ebed391cf5
+```
+```
+⠓ Confirming..
+🛡️ Response received from Blockchain.
+Stamped: YES
 ```
 
 ## Documentation
