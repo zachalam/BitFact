@@ -10,6 +10,11 @@ BitFact fingerprints information and then etches it on the Ethereum Blockchain.
 <img src="https://img.shields.io/npm/v/bitfact" />
 <img src="https://img.shields.io/bundlephobia/minzip/bitfact" />
 <br /><br /><br />
+</p>
+
+___
+
+<p align="center">
 <img src="https://raw.githubusercontent.com/zachalam/BitFact/master/docs/images/bitfact_cli.gif" alt="BitFact in action demo" align="center" />
 <br /><br />
 </p>
