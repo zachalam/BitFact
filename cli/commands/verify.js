@@ -7,27 +7,38 @@ spinner.setSpinnerString(19);
 
 module.exports = {
   prompt: async (env) => {
-
     helpers.killForNoConf();
-    if (!env.file && !env.text) helpers.errorExit("Must supply either -f <file> or -t <text> param.");
-    if (env.file && env.text) helpers.errorExit("Cannot supply both -f <file> and -t <text> params.");
+    if (!env.file && !env.text)
+      helpers.errorExit("Must supply either -f <file> or -t <text> param.");
+    if (env.file && env.text)
+      helpers.errorExit("Cannot supply both -f <file> and -t <text> params.");
     const bitfact = new BitFact(helpers.loadConfFile());
-    
+
     if (env.file) {
-      // bitfact stamp file.
+      // bitfact verify file.
       spinner.start();
-      const isStamped = await bitfact.verifyFile(env.file, env.tx);
+
+      try {
+        const isStamped = await bitfact.verifyFile(env.file, env.tx);
+        helpers.verifyDone(isStamped);
+      } catch (e) {
+        helpers.errorExit(e);
+      }
+
       spinner.stop();
-      helpers.verifyDone(isStamped);
     }
 
     if (env.text) {
-      // bitfact stamp text
+      // bitfact verify text
       spinner.start();
-      const isStamped = await bitfact.verifyText(env.text, env.tx);
-      spinner.stop();
-      helpers.verifyDone(isStamped);
-    }
 
+      try {
+        const isStamped = await bitfact.verifyText(env.text, env.tx);
+        helpers.verifyDone(isStamped);
+      } catch (e) {
+        helpers.errorExit(e);
+      }
+      spinner.stop();
+    }
   },
 };

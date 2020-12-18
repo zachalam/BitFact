@@ -28,7 +28,7 @@ const killForNoConf = () => {
 const stampDone = (hash, txid) => {
   if (!hash || !txid) errorExit("Could not write to Blockchain.");
   console.log("");
-  console.log(chalk.green(chalk.bold("Success! Stamped on Blockchain.")));
+  console.log(chalk.green(chalk.bold("🛡️ Success! Stamped on Blockchain.")));
   console.log("Hash: " + chalk.gray(chalk.bold(hash)));
   console.log("Txid: " + chalk.gray(chalk.bold(txid)));
 };
@@ -36,7 +36,7 @@ const stampDone = (hash, txid) => {
 const verifyDone = (status) => {
   if (status === undefined) errorExit("Could not read from Blockchain.");
   console.log("");
-  console.log(chalk.gray(chalk.bold("Response received from Blockchain.")));
+  console.log(chalk.gray(chalk.bold("🛡️ Response received from Blockchain.")));
   console.log(
     "Stamped: " + chalk.bold(status ? chalk.green("YES") : chalk.red("NO"))
   );
