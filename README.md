@@ -42,11 +42,11 @@ $ bitfact stamp -f hello_world.txt
 ```
 ⠓ Confirming..
 🛡️ Success! Stamped on Blockchain:
-Txid: 0xbae7f1933..08391cf5
+Txid: 0xbae00000000000000005
 ```
 ### Verify
 ```java
-$ bitfact verify -f hello_world.txt -tx 0xbae7f1933..08391cf5
+$ bitfact verify -f hello_world.txt -tx 0xbae00000000000000005
 ```
 ```
 ⠓ Confirming..
