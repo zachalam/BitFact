@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/zachalam/BitFact/master/readme/header.png" alt="BitFact Header Image" title="BitFact" align="center" />
 <br /><br />
-Prove data with this effective toolkit. 
+Prove data with this complete toolkit. 
 <br />
 BitFact fingerprints information and then etches it permanently on the Ethereum Blockchain.
 <br /><br />
