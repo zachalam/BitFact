@@ -31,7 +31,7 @@ yarn global add bitfact
 ```
 
 ## Features
-- 🖐️ Fingerprint any data with 2 easy calls. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
+- 🖐️ Fingerprint data with one easy command. [What's a fingerprint?](https://en.wikipedia.org/wiki/Fingerprint_(computing))
 - ♾️ Permanent hash etched on the Ethereum blockchain.
 - ⛽ Tiny gas fees (~21,000) - the same as sending ether.
 - 😎 Use with: mainnet (live), ropsten (testnet), & beaconchain (eth2).
